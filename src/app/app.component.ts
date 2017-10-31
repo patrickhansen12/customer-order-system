@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Customer } from './customer/shared/customer.model';
+import {CustomerService} from './customer/shared/customer.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  customers: Customer[];
+
+  customerFromAppComponent: Customer;
+  constructor(private customerService: CustomerService) {
+    customerService.getCustomers().subscribe(
+      customers => {
+        this.customers = customers;
+      }
+    );
+  }
 }
