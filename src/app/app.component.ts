@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {Customer } from './customer/shared/customer.model';
-import {CustomerService} from './customer/shared/customer.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +7,9 @@ import {CustomerService} from './customer/shared/customer.service';
 })
 export class AppComponent {
 
-  customers: Customer[];
 
-  customerFromAppComponent: Customer;
-  constructor(private customerService: CustomerService) {
-    customerService.getCustomers().subscribe(
-      customers => {
-        this.customers = customers;
+
+  constructor() {
       }
-    );
-  }
+
 }
