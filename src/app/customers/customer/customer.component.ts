@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Customer} from '../shared/customer.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -11,9 +12,9 @@ export class CustomerComponent implements OnInit {
   @Input()
   customer: Customer;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 }

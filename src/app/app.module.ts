@@ -4,8 +4,8 @@ import {FormsModule} from '@angular/forms';
 import { HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { CustomerComponent } from './customer/customer/customer.component';
-import {CustomerService} from './customer/shared/customer.service';
+import { CustomerComponent } from './customers/customer/customer.component';
+import {CustomerService} from './customers/shared/customer.service';
 
 @NgModule({
   declarations: [
