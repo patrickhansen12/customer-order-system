@@ -17,4 +17,8 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  customerDetails(customer: Customer) {
+    
+  }
 }
