@@ -6,16 +6,38 @@ import { HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customers/customer/customer.component';
 import {CustomerService} from './customers/shared/customer.service';
+import { RouterModule, Routes} from '@angular/router';
+import { ProductsComponent } from './customers/products/products.component';
+import { OrdersComponent } from './customers/orders/orders.component';
+
+const appRoutes: Routes = [
+  { path: 'customers/:id/products',
+    component: ProductsComponent },
+  { path: 'customers',
+    component: CustomerComponent },
+  { path: 'orders',
+    component: OrdersComponent },
+
+  { path: '*',
+    redirectTo: '/customers'
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerComponent
+    CustomerComponent,
+    ProductsComponent,
+    OrdersComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     HttpModule
+  ],
+  entryComponents: [
+    CustomerComponent
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]
