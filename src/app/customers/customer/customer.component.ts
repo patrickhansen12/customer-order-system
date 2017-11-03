@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Customer} from '../shared/customer.model';
 import {Router} from '@angular/router';
-import {getResponseURL} from '@angular/http/src/http_utils';
 import {CustomerService} from '../shared/customer.service';
 
 @Component({

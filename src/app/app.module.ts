@@ -17,7 +17,10 @@ const appRoutes: Routes = [
     component: CustomerComponent },
   { path: 'orders',
     component: OrdersComponent },
-
+  { path: '',
+    pathMatch: 'full',
+    redirectTo: '/customers'
+  },
   { path: '*',
     redirectTo: '/customers'
   }
