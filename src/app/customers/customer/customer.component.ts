@@ -6,8 +6,7 @@ import {CustomerService} from '../shared/customer.service';
 @Component({
   selector: 'customers-list',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css'],
-  providers: [CustomerService]
+  styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
 
@@ -16,8 +15,8 @@ export class CustomerComponent implements OnInit {
               public customerService: CustomerService) {
     this.customerService.getCustomers().then(
       (customers) => {
-        this.customers = customers;
         console.log(customers);
+        this.customers = customers;
       }
     );
   }
@@ -28,5 +27,10 @@ export class CustomerComponent implements OnInit {
   customerDetails(id) {
    this.router
       .navigate(['/customers/', id, 'products']);
+  }
+
+  createCustomer() {
+    this.router
+      .navigateByUrl('/customers/create');
   }
 }

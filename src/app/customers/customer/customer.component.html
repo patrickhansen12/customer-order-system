@@ -1,3 +1,8 @@
+<div class="pull-right">
+  <button class="jasmine-menu" (click)="createCustomer()">
+    Create new customer
+  </button>
+</div>
 <div *ngFor="let customer of customers" class="video-border">
   <img class="img" src="http://via.placeholder.com/64x64">
   <div (click)="customerDetails(customer.id)" >

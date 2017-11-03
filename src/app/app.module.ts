@@ -9,6 +9,8 @@ import {CustomerService} from './customers/shared/customer.service';
 import { RouterModule, Routes} from '@angular/router';
 import { ProductsComponent } from './customers/products/products.component';
 import { OrdersComponent } from './customers/orders/orders.component';
+import { CustomerCreateComponent } from './customers/customer/customer-create/customer-create/customer-create.component';
+import {HttpClient} from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'customers/:id/products',
@@ -17,7 +19,8 @@ const appRoutes: Routes = [
     component: CustomerComponent },
   { path: 'orders',
     component: OrdersComponent },
-  { path: '',
+  { path: 'customers/create', component:CustomerCreateComponent},
+    { path: '',
     pathMatch: 'full',
     redirectTo: '/customers'
   },
@@ -31,13 +34,14 @@ const appRoutes: Routes = [
     AppComponent,
     CustomerComponent,
     ProductsComponent,
-    OrdersComponent
+    OrdersComponent,
+    CustomerCreateComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   entryComponents: [
     CustomerComponent
