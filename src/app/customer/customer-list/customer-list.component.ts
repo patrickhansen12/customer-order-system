@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -13,7 +14,7 @@ export class CustomerListComponent implements OnInit {
   customers: Customer[];
 
   customerFromAppComponent: Customer;
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, private router:Router) {
 
   }
 
@@ -28,6 +29,8 @@ export class CustomerListComponent implements OnInit {
         }
       );
   }
-
+details(customer: Customer){
+    this.router.navigateByUrl('/customer' + customer.id);
+}
 }
 
