@@ -14,7 +14,7 @@ export class CustomerListComponent implements OnInit {
   customers: Customer[];
 
   customerFromAppComponent: Customer;
-  constructor(private customerService: CustomerService, private router:Router) {
+  constructor(private customerService: CustomerService, private router: Router) {
 
   }
 
@@ -29,7 +29,7 @@ export class CustomerListComponent implements OnInit {
         }
       );
   }
-details(customer: Customer){
+details(customer: Customer) {
     this.router.navigateByUrl('/customer' + customer.id);
 }
 }
