@@ -1,6 +1,9 @@
+import {Address} from '../../addresses/shared/address.model';
+
 export class Customer {
   id?: number;
   firstName: string;
   lastName: string;
-  address: string;
+  addresses?: Address[];
+  addressIds?: number[];
 }

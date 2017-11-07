@@ -1,5 +1,62 @@
-<button routerLink="/customers" routerLinkActive="active">Back</button>
-<p>
-  customer-detail works!
-</p>
-{{customer | json}}
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <button
+          class="btn btn-outline-success"
+          routerLink="/customers"
+          routerLinkActive="active">Back
+        </button>
+        <hr>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <h4 class="card-header">Customer Details</h4>
+          <div class="card-body row">
+            <div class="col-md-4">
+              <img class="img" src="http://via.placeholder.com/275x275">
+            </div>
+            <div class="col-md-8">
+              <dl class="row">
+                <dt class="col-md-2">FirstName:</dt>
+                <dd class="col-md-10">{{customer?.firstName}}</dd>
+              </dl>
+              <dl class="row">
+                <dt class="col-md-2">LastName:</dt>
+                <dd class="col-md-10">{{customer?.lastName}}</dd>
+              </dl>
+              <dl class="row">
+                <dt class="col-md-2">Addresses:</dt>
+                <dd class="col-md-10">
+                  <app-address-list
+                    [addresses]="customer?.addresses">
+
+                  </app-address-list>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <div class="pull-right" *ngIf="!confirmDelete">
+            <button class="btn btn-outline-danger" (click)="delete()">
+              <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+            </button>
+            <button class="btn btn-outline-warning">
+              <i class="fa fa-pencil" aria-hidden="true"></i> Update
+            </button>
+          </div>
+            <div class="pull-right" *ngIf="confirmDelete">
+              <button class="btn btn-outline-danger" (click)="deleteConfirmed()">
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Sure?
+              </button>
+              <button class="btn btn-outline-info" (click)="abortDelete()">
+                <i class="fa fa-times" aria-hidden="true"></i> Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+

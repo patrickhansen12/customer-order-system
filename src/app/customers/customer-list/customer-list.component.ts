@@ -3,6 +3,7 @@ import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
@@ -10,27 +11,52 @@ import {Router} from '@angular/router';
 })
 export class CustomerListComponent implements OnInit {
 
-
   customers: Customer[];
-
-  customerFromAppComponent: Customer;
-  constructor(private customerService: CustomerService, private router: Router) {
-
+  customerToDelete: Customer;
+  constructor(private customerService: CustomerService,
+              private router: Router) {
   }
 
   ngOnInit() {
     // Ask for a bunch of code to execute
-   this.customerService.get()
-    // Executing and explaining when done let me know
+    this.customerService.get()
+    // Executing and explaning when done let me know
       .subscribe(
         customers => {
           this.customers = customers;
-
         }
       );
   }
-details(customer: Customer) {
-    this.router.navigateByUrl('/customer' + customer.id);
-}
-}
 
+  details(customer: Customer) {
+    this.router
+      .navigateByUrl('/customer/' + customer.id);
+  }
+
+  delete(customer: Customer, $event) {
+    console.log('delete Clicked');
+    this.customerToDelete = customer;
+    $event.stopPropagation();
+  }
+
+  deleteAborted($event) {
+    this.customerToDelete = null;
+    $event.stopPropagation();
+  }
+
+  deleteConfirmed($event) {
+    this.customerService.delete(this.customerToDelete.id)
+      .switchMap(customer => this.customerService.get())
+      .subscribe(
+        customers => {
+          this.customers = customers;
+        }
+      );
+    $event.stopPropagation();
+  }
+
+  createCustomer() {
+    this.router
+      .navigateByUrl('/customers/create');
+  }
+}
