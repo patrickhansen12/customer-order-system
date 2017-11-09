@@ -14,7 +14,7 @@
     <div class="col-md-12">
       <div class="list-group">
         <div (click)="details(customer)" *ngFor="let customer of customers" class="list-group-item list-group-item-action">
-          <img class="rounded float-left img" src="http://via.placeholder.com/64x64">
+
           <h5>{{customer.firstName}} {{customer.lastName}}</h5>
           <img class="img1" *ngIf="customer.id == '1' " src="https://i.imgur.com/oFdThdF.jpg">
           <img class="img2" *ngIf="customer.id == '2' " src="http://denoffentlige.dk/sites/default/files/arne_eggert.jpg">
