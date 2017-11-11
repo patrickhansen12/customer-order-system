@@ -11,7 +11,7 @@
       <hr>
     </div>
     <div class="col-md-12">
-      <form (ngSubmit)="save()" [formGroup]="customerGroup" novalidate>
+      <form #form (ngSubmit)="save(form)" [formGroup]="customerGroup" novalidate>
         <div class="form-group">
           <label class="center-block col-md-12 ">FirstName:
             <input class="form-control"

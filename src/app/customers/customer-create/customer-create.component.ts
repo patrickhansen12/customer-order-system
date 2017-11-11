@@ -63,6 +63,7 @@ export class CustomerCreateComponent implements OnInit {
           addressIds.push(addressBack.id);
         }));
     });
+    console.log(this.addressesIn);
     Observable.forkJoin(addressRequests)
       .switchMap(() =>
         // 2: Add a AddressIds Array to the CustomerModel so it
