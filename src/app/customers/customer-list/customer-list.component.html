@@ -13,8 +13,8 @@
     </div>
     <div class="col-md-12">
       <div class="list-group">
-        <div (click)="details(customer)" *ngFor="let customer of customers" class="list-group-item list-group-item-action">
-
+        <input [(ngModel)]="searchText" placeholder="search text goes here">
+        <div (click)="details(customer)" *ngFor="let customer of customers | filter : searchText" class="list-group-item list-group-item-action">
           <h5>{{customer.firstName}} {{customer.lastName}}</h5>
           <img class="img1" *ngIf="customer.id == '1' " src="https://i.imgur.com/oFdThdF.jpg">
           <img class="img2" *ngIf="customer.id == '2' " src="http://denoffentlige.dk/sites/default/files/arne_eggert.jpg">

@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipe} from './customers/customer-list/filter.pipe';
 
 import { AppComponent } from './app.component';
 import { CustomerService } from './customers/shared/customer.service';
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    Ng2SearchPipe,
     CustomerListComponent,
     CustomerDetailComponent,
     CustomerCreateComponent,
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),

@@ -3,7 +3,6 @@ import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
 import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
