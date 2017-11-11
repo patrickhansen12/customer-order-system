@@ -14,12 +14,7 @@
           <h4 class="card-header">Customer Details</h4>
           <div class="card-body row">
             <div class="col-md-4">
-              <img class="img1" *ngIf="customer.id === 1 " src="https://i.imgur.com/oFdThdF.jpg">
-              <img class="img2" *ngIf="customer.id === 2 " src="http://denoffentlige.dk/sites/default/files/arne_eggert.jpg">
-              <img class="img3" *ngIf="customer.id === 3 " src="https://engineering.unl.edu/images/staff/Kayla_Person-small.jpg">
-              <img class="img4" *ngIf="customer.id === 4 " src="https://bt.bmcdn.dk/media/cache/resolve/image_540x303/image/86/864553/12904709-071seulrik-wilbek4-175931jpg.jpeg">
-              <img class="img5" *ngIf="customer.id === 5 " src="http://fiskesaeson.dk/wp-content/uploads/2015/02/DSCN3536-1024x768.jpg">
-              <img class="img6" *ngIf="customer.id === 6 " src="https://bt.bmcdn.dk/media/cache/resolve/image_1240/image/22/227375/4467652-jesper-petersen-sf.jpg">
+              <img class="img1" [src]="thisImageArray[customer.id -1]">
             </div>
             <div class="col-md-8">
               <dl class="row">

@@ -1,3 +1,4 @@
+import { imagesArray } from './../shared/customer.service';
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
@@ -11,16 +12,18 @@ import 'rxjs/add/operator/switchMap';
 })
 export class CustomerDetailComponent implements OnInit {
   customer: Customer;
+  thisImageArray: string[] = imagesArray;
   confirmDelete= false;
   constructor(private customerService: CustomerService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+              }
 
   ngOnInit() {
     this.route.paramMap
-      .switchMap(params => this.customerService.getById(+params.get('id')))
-      .subscribe(customer => this.customer = customer);
-
+            .switchMap(params =>
+              this.customerService.getById(+params.get('id'))
+           ).subscribe(customer => this.customer = customer);
     /*this.route.paramMap
       .subscribe(params => {
         this.customerService.getById(+params.get('id'))

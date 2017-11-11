@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { imagesArray } from './../shared/customer.service';
 import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
 import {Router} from '@angular/router';
@@ -12,6 +13,7 @@ export class CustomerListComponent implements OnInit {
 
   customers: Customer[];
   customerToDelete: Customer;
+  thisImageArray: string[] = imagesArray;
   constructor(private customerService: CustomerService,
               private router: Router) {
   }
