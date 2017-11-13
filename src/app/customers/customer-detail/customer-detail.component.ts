@@ -12,7 +12,6 @@ import 'rxjs/add/operator/switchMap';
 })
 export class CustomerDetailComponent implements OnInit {
   customer: Customer;
-  thisImageArray: string[] = imagesArray;
   confirmDelete= false;
   constructor(private customerService: CustomerService,
               private router: Router,
