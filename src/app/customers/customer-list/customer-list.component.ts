@@ -3,6 +3,7 @@ import { imagesArray } from './../shared/customer.service';
 import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
 import {Router} from '@angular/router';
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'app-customer-list',
@@ -54,7 +55,6 @@ export class CustomerListComponent implements OnInit {
           this.customers = customers;
         }
       );
-    this.refresh();
     $event.stopPropagation();
   }
 
