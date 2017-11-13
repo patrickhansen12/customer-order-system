@@ -24,6 +24,7 @@ export class CustomerDetailComponent implements OnInit {
             .switchMap(params =>
               this.customerService.getById(+params.get('id'))
            ).subscribe(customer => this.customer = customer);
+
     /*this.route.paramMap
       .subscribe(params => {
         this.customerService.getById(+params.get('id'))
@@ -44,4 +45,6 @@ export class CustomerDetailComponent implements OnInit {
       .subscribe(customer => this.router
         .navigateByUrl('/customers'));
   }
+
 }
+

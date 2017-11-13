@@ -14,6 +14,7 @@ export class CustomerListComponent implements OnInit {
   customers: Customer[];
   customerToDelete: Customer;
   thisImageArray: string[] = imagesArray;
+
   constructor(private customerService: CustomerService,
               private router: Router) {
   }
@@ -53,11 +54,16 @@ export class CustomerListComponent implements OnInit {
           this.customers = customers;
         }
       );
+    this.refresh();
     $event.stopPropagation();
   }
 
   createCustomer() {
     this.router
       .navigateByUrl('/customers/create');
+  }
+
+  refresh() {
+    window.location.reload();
   }
 }
