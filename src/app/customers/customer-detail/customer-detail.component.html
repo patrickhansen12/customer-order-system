@@ -35,7 +35,6 @@
                 <dd class="col-md-10">
                   <app-address-list
                     [addresses]="customer?.addresses">
-
                   </app-address-list>
                 </dd>
               </dl>
@@ -52,7 +51,6 @@
           </div>
             <div class="pull-right" *ngIf="confirmDelete">
               <button class="btn btn-outline-danger" (click)="deleteConfirmed()">
-
                 <i class="fa fa-trash-o" aria-hidden="true"></i> Sure?
               </button>
               <button class="btn btn-outline-info" (click)="abortDelete()">

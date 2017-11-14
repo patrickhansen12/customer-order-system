@@ -14,7 +14,7 @@
     <div class="col-md-12">
       <div class="list-group">
         <input [(ngModel)]="searchText" placeholder="search text goes here">
-        <div *ngFor="let customer of customers | filter : searchText; let i = index" (click)="details(customer)" class="list-group-item list-group-item-action">
+        <div *ngFor="let customer of customers | filter : searchText" (click)="details(customer)" class="list-group-item list-group-item-action">
           <h5>{{customer.firstName}} {{customer.lastName}}</h5>
           <img class="img1" *ngIf="customer && customer.id == '1' " src="https://i.imgur.com/oFdThdF.jpg">
           <img class="img2" *ngIf="customer && customer.id == '2' " src="http://denoffentlige.dk/sites/default/files/arne_eggert.jpg">

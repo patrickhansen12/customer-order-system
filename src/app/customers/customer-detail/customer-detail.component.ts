@@ -1,4 +1,3 @@
-import { imagesArray } from './../shared/customer.service';
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
@@ -23,12 +22,6 @@ export class CustomerDetailComponent implements OnInit {
             .switchMap(params =>
               this.customerService.getById(+params.get('id'))
            ).subscribe(customer => this.customer = customer);
-
-    /*this.route.paramMap
-      .subscribe(params => {
-        this.customerService.getById(+params.get('id'))
-          .subscribe(customer => this.customer = customer);
-    });*/
   }
 
   delete() {
@@ -44,6 +37,5 @@ export class CustomerDetailComponent implements OnInit {
       .subscribe(customer => this.router
         .navigateByUrl('/customers'));
   }
-
 }
 

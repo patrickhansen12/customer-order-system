@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { imagesArray } from './../shared/customer.service';
 import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
 import {Router} from '@angular/router';
@@ -14,16 +13,13 @@ export class CustomerListComponent implements OnInit {
 
   customers: Customer[];
   customerToDelete: Customer;
-  thisImageArray: string[] = imagesArray;
 
   constructor(private customerService: CustomerService,
               private router: Router) {
   }
 
   ngOnInit() {
-    // Ask for a bunch of code to execute
     this.customerService.get()
-    // Executing and explaning when done let me know
       .subscribe(
         customers => {
           this.customers = customers;
@@ -61,9 +57,5 @@ export class CustomerListComponent implements OnInit {
   createCustomer() {
     this.router
       .navigateByUrl('/customers/create');
-  }
-
-  refresh() {
-    window.location.reload();
   }
 }

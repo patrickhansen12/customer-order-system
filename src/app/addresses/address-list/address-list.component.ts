@@ -36,5 +36,4 @@ export class AddressListComponent implements OnInit {
   }
 
   ngOnInit() {}
-
 }
